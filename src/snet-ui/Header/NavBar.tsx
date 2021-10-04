@@ -39,16 +39,12 @@ const NavBar = ({ navigationData, classes, type }: NavbarProps) => {
             {type === "mobile" ? (
               <span>{navItem.name}</span>
             ) : (
-              <a
-                href={navItem.url}
-                title={navItem.name}
-                className={classes.dropDown}
-                id="navLink"
-                onClick={() => onMenuClick(navItem.id)}
-              >
-                {navItem.name}
-                {navItem.sections ? <ArrowDropDownIcon /> : null}
-              </a>
+              <div onClick={() => onMenuClick(navItem.id)}>
+                <a href={navItem.url} title={navItem.name} className={classes.dropDown} id="navLink">
+                  {navItem.name}
+                  {navItem.sections ? <ArrowDropDownIcon /> : null}
+                </a>
+              </div>
             )}
             <div
               className={`${type === "mobile" ? classes.subMenuContainer : classes.megaMenuContainer} ${
